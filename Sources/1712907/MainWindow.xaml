@@ -1,0 +1,44 @@
+﻿<Window x:Class="_1712907.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:_1712907"
+        mc:Ignorable="d"
+        Title="CaroAI - Author pqviet-171207 HCMUS" Height="580" Width="800"
+        Loaded="Window_Loaded" 
+        MouseLeftButtonUp="Window_MouseLeftButtonUp"
+        MouseLeftButtonDown="Window_MouseLeftButtonDown" 
+        Closed="Window_Closed" Icon="icon.png"
+        WindowStartupLocation="CenterScreen">
+    <Window.Background>
+        <ImageBrush ImageSource="bg.jpg"/>
+    </Window.Background>
+
+    <Canvas>
+        <Rectangle x:Name="bgRect"  Opacity="{Binding ElementName=opacitySeekBar, Path=Value, Mode=OneWay}"></Rectangle>
+        <Canvas Name="canvas" Height="520" Width="500"/>
+        
+        
+        <Canvas Name="menuCanvas" Height="520" Width="300" Canvas.Left="500">
+            <Button Name="SaveButton"  Content="SAVE" Click="SaveButton_Click" Width="90" Height="30" Canvas.Left="47" Canvas.Top="62" Opacity="0.7"/>
+            <Button Name="LoadButton" Content="LOAD" Width="90" Height="30" Click="LoadButton_Click" Canvas.Left="152" Canvas.Top="62" Opacity="0.7"/>
+
+            <Rectangle Fill="#FFF4F4F5" Height="121" Canvas.Left="31" Stroke="Black" Canvas.Top="379" Width="232" Opacity="0.6"></Rectangle>
+       
+            <GroupBox Header="Game Mode" Height="100" Canvas.Left="47" Canvas.Top="389" Width="202" Foreground="#FFA410C5" BorderBrush="#FF094D76" FontWeight="Bold" FontSize="16" Cursor="Hand">
+                <Canvas>
+                    <RadioButton Name="radiobox1" Content="Đánh với Human" IsChecked="False" Canvas.Top="10" FontWeight="Medium" Background="White" Foreground="#FF26CD26"/>
+                    <RadioButton Name="radiobox2" Content="Đánh với AI" IsChecked="True" Canvas.Top="30" FontWeight="Medium" Background="White" Foreground="#FF1C43AC" />
+                </Canvas>
+            </GroupBox>
+
+            <StackPanel VerticalAlignment="Center" Canvas.Left="63" Canvas.Top="224">
+                <Label Content="Opacity" Foreground="WhiteSmoke" FontSize="18"></Label>
+                <Slider x:Name="opacitySeekBar" Width="200" Maximum="1" Minimum="0"  Value="0.3" TickPlacement="BottomRight" TickFrequency="0.1" />
+            </StackPanel>
+            
+        </Canvas>
+    </Canvas>
+
+</Window>
